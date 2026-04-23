@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../nwsAlerts"
+		},
+		{
+			"path": "../wx-modules"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../weather-llm-api"
+		},
+		{
+			"path": "../weather-llm-iac"
+		},
+		{
+			"path": "../rPi-5-ai"
+		}
+	],
+	"settings": {}
+}
