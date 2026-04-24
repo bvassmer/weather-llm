@@ -15,6 +15,12 @@
 - Deploy client changes to `nws` at `pi@192.168.6.87`.
 - Rebuild the `client` service from `/home/pi/development/weather-stack/weather-llm-iac` with `sudo docker-compose up -d --build --no-deps --force-recreate client`.
 
+## Deploy Flow
+
+- Push `weather-llm` changes to GitHub before deploying.
+- Keep `/home/pi/development/weather-stack/weather-llm` as a Git checkout on `main`.
+- Deploy from `/home/pi/development/weather-stack/weather-llm-iac` with `sh ./scripts/deploy_nws_from_git.sh client` so the live Pi checkout is fast-forwarded from GitHub before `client` is recreated.
+
 ## Validation
 
 - Check the deployed UI with `curl -I http://192.168.6.87:5173`.
