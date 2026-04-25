@@ -90,8 +90,8 @@ function EmailTemplatesPage() {
   };
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
-      <GlassCard>
+    <div className="grid items-start gap-6 lg:grid-cols-[320px_minmax(0,1fr)]">
+      <GlassCard className="self-start">
         <div className="card-body gap-4">
           <h1 className="card-title text-2xl">Email Template Previews</h1>
           <p className="text-base-content/80">
