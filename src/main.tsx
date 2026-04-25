@@ -7,6 +7,7 @@ import PromptPage from './pages/PromptPage';
 import SettingsPage from './pages/SettingsPage';
 import AlertsPage from './pages/AlertsPage';
 import QueuePage from './pages/QueuePage';
+import EmailTemplatesPage from './pages/EmailTemplatesPage';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Route index element={<PromptPage />} />
           <Route path="alerts" element={<AlertsPage />} />
           <Route path="queue" element={<QueuePage />} />
+          <Route path="email-templates" element={<EmailTemplatesPage />} />
           <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>

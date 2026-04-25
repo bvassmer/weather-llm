@@ -8,7 +8,8 @@ function App() {
     location.pathname.startsWith('/prompt') ||
     location.pathname.startsWith('/settings') ||
     location.pathname.startsWith('/alerts') ||
-    location.pathname.startsWith('/queue');
+    location.pathname.startsWith('/queue') ||
+    location.pathname.startsWith('/email-templates');
 
   const navItemClass = ({ isActive }: { isActive: boolean }) =>
     `btn btn-ghost btn-sm ${isActive ? 'btn-active' : ''}`;
@@ -32,6 +33,9 @@ function App() {
               </NavLink>
               <NavLink to="/queue" className={navItemClass}>
                 Queue
+              </NavLink>
+              <NavLink to="/email-templates" className={navItemClass}>
+                Email Preview
               </NavLink>
               <NavLink to="/settings" className={navItemClass}>
                 Settings
