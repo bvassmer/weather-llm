@@ -281,31 +281,36 @@ function EmailTemplatesPage() {
               <p className="text-base-content/70">
                 Generated: {new Date(candidatesResult.generatedAt).toLocaleString()}
               </p>
+              <p className="text-xs text-base-content/70">Count: {(candidatesResult.candidates ?? []).length}</p>
               {(candidatesResult.candidates ?? []).length ? (
-                candidatesResult.candidates.map((candidate) => {
-                  const active = selectedCandidateId === candidate.id;
-                  return (
-                    <button
-                      key={candidate.id}
-                      type="button"
-                      className={`btn h-auto min-h-0 justify-between py-3 ${
-                        active ? 'btn-secondary' : 'btn-ghost border border-base-300'
-                      }`}
-                      onClick={() => setSelectedCandidateId(candidate.id)}
-                    >
-                      <span className="flex min-w-0 flex-col items-start text-left">
-                        <span className="truncate font-semibold">{candidate.headline ?? candidate.event ?? candidate.id}</span>
-                        <span className="truncate text-xs text-base-content/70">
-                          {candidate.source}
-                          {candidate.issuedAt ? ` • ${new Date(candidate.issuedAt).toLocaleString()}` : ''}
+                <div className="flex max-h-[420px] flex-col gap-2 overflow-y-auto pr-1">
+                  {candidatesResult.candidates.map((candidate) => {
+                    const active = selectedCandidateId === candidate.id;
+                    return (
+                      <button
+                        key={candidate.id}
+                        type="button"
+                        className={`btn h-auto min-h-0 w-full items-start justify-between gap-3 overflow-hidden py-3 normal-case ${
+                          active ? 'btn-secondary' : 'btn-ghost border border-base-300'
+                        }`}
+                        onClick={() => setSelectedCandidateId(candidate.id)}
+                      >
+                        <span className="flex min-w-0 flex-1 flex-col items-start text-left">
+                          <span className="block w-full whitespace-normal break-words font-semibold leading-snug">
+                            {candidate.headline ?? candidate.event ?? candidate.id}
+                          </span>
+                          <span className="mt-1 block w-full whitespace-normal break-words text-xs text-base-content/70 leading-snug">
+                            {candidate.source}
+                            {candidate.issuedAt ? ` • ${new Date(candidate.issuedAt).toLocaleString()}` : ''}
+                          </span>
                         </span>
-                      </span>
-                      <span className={`badge ${candidate.canSend ? 'badge-success' : 'badge-warning'}`}>
-                        {candidate.canSend ? 'sendable' : 'review'}
-                      </span>
-                    </button>
-                  );
-                })
+                        <span className={`badge shrink-0 self-start ${candidate.canSend ? 'badge-success' : 'badge-warning'}`}>
+                          {candidate.canSend ? 'sendable' : 'review'}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
               ) : (
                 <div className="alert alert-warning text-sm">No real email candidates were returned.</div>
               )}
